@@ -15,7 +15,7 @@ import Link from 'next/link'
 import { signInValidation } from '@/Schema/signInSchema'
 import { signIn } from 'next-auth/react'
 
-function page() {
+function Page() {
  
     const [isSubmitting, setIsSubmitting] = useState(false)
     const { toast } = useToast()
@@ -146,4 +146,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

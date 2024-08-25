@@ -17,7 +17,7 @@ import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 
 
-function page() {
+function Page() {
     const [username,setUsername] = useState("")
     const [usernameMessage,setUsernameMessage] = useState("")
     const [isCheckingUsername,setIsCheckingUsername] = useState(false)
@@ -187,4 +187,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

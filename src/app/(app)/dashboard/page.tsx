@@ -17,7 +17,7 @@ import MessageCard from '@/components/MessageCard'
 import { Input } from '@/components/ui/input'
 
 
-function page() {
+function Page() {
 
   const [messages,setMessages] = useState<MessageType[]>([]) //stores all messages
   const [isLoading, setIsLoading] = useState(false)
@@ -62,8 +62,7 @@ function page() {
       }
 
     },
-    [setValue],
-  )
+    [setValue])
   
 
   const fetchMessages = useCallback(
@@ -96,8 +95,7 @@ function page() {
         setIsLoading(false)
       }
     },
-    [setMessages,setIsLoading],
-  )
+    [setMessages,setIsLoading])
   
   useEffect(()=>{
      if (!session || !session.user) return
@@ -208,4 +206,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

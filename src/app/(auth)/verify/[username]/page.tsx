@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
 
-function page() {
+function Page() {
     
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter()
@@ -99,4 +99,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
