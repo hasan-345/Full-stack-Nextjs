@@ -1,9 +1,9 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import {FormProvider, useForm } from "react-hook-form"
 import { z } from "zod"
-import axios, {AxiosError} from "axios"
+import {AxiosError} from "axios"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from 'next/navigation'
 import { ApiResponse } from '@/types/ApiResponse'
@@ -138,7 +138,7 @@ function Page() {
     </FormProvider>
 
     <div className='text-center mt-4'>
-        <p> Don't have an account <Link href="/sign-up" className='text-blue-800 hover:text-blue-800 underline'>Sign up</Link> </p>
+        <p> Don not have an account <Link href="/sign-up" className='text-blue-800 hover:text-blue-800 underline'>Sign up</Link> </p>
     </div>
         </div>
     </div>

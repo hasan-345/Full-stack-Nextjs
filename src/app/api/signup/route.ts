@@ -1,4 +1,4 @@
-import User, { UserType } from "@/models/User.model";
+import User from "@/models/User.model";
 import { dbConnection } from "@/lib/dbConfig";
 import bcrypt from "bcryptjs" //it is used to hashed password before save
 import { sendEmailVerification } from "@/lib/resend"; //ignore please i will understand what i did

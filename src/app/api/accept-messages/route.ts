@@ -41,7 +41,7 @@ export async function POST(request:Request) {
 }
 
 //this is used to check current state of accept message
-export async function GET(request:Request) {
+export async function GET() {
 
     await dbConnection()
      

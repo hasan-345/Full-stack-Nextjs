@@ -24,7 +24,7 @@ export async function DELETE(request:Request,{params}: {params: {messageId: stri
    try {
         
       const updated =  await User.updateOne({
-            _id: user._id
+            _id: userId
         },{
             $pull: {
                 messages: {_id: messageId}

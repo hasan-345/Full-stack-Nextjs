@@ -9,7 +9,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { acceptValidation } from '@/Schema/acceptMessageSchema'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { User } from 'next-auth'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Loader2, RefreshCcw } from 'lucide-react'
@@ -62,7 +61,7 @@ function Page() {
       }
 
     },
-    [setValue])
+    [setValue, toast])
   
 
   const fetchMessages = useCallback(
@@ -95,13 +94,13 @@ function Page() {
         setIsLoading(false)
       }
     },
-    [setMessages,setIsLoading])
+    [setMessages,setIsLoading, toast])
   
   useEffect(()=>{
      if (!session || !session.user) return
      fetchMessages()
      fetchAcceptMessages()
-  },[setValue,fetchAcceptMessages, session])
+  },[fetchAcceptMessages, session,fetchMessages])
 
 
   const handleSwitchChange = async()=>{
@@ -129,7 +128,7 @@ function Page() {
   }
 
    
-  const baseUrl = `${window.location.protocol}//${window.location.host}`
+  const baseUrl =  typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : '';
   const profileUrl = `${baseUrl}/u/${user?.username}`
 
   const copyClipboard = ()=>{
@@ -159,7 +158,7 @@ function Page() {
       <div className='mb-4'>
         <h2 className='text-slate-100 my-4 relative z-[3]'>Copy your Unique Link</h2> {" "}
         <div className='flex items-center relative z-[3]'>
-          <Input type="text" name="" id="" value={profileUrl} readOnly className='w-full p-2 mr-2 text-md bg-transparent border-2 text-slate-100 border-slate-400' />
+          <Input type="text" value={profileUrl} readOnly className='w-full p-2 mr-2 text-md bg-transparent border-2 text-slate-100 border-slate-400' />
           <Button className='dark' onClick={copyClipboard} > Copy </Button>
         </div>
       </div>
@@ -193,7 +192,7 @@ function Page() {
 
          <div className='mt-4 flex flex-wrap md:w-fit w-full gap-6'>
             {messages.length > 0 ? (
-              messages.map((message,index)=> (        
+              messages.map((message)=> (        
                 <MessageCard
                  key={message._id as string} 
                  message={message} 

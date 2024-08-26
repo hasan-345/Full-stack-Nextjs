@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 
 
 
-export async function GET(request:Request){
+export async function GET(){
    await dbConnection()
    const session = await getServerSession(authOptions)
 

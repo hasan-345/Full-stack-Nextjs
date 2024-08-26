@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
     Card,
     CardDescription,
@@ -45,7 +45,7 @@ function MessageCard({message, onMessageDelete}: Message) {
 
    } 
 
-   const formatChanger = ()=>{
+   const formatChanger = useCallback(()=>{
 
     const date = new Date(message.createdAt) 
     const year = date.getFullYear();
@@ -63,13 +63,14 @@ function MessageCard({message, onMessageDelete}: Message) {
      setdateCreatedAt(formattedDate)
      console.log(formattedDate);
      
-   }
+   },[message])
 
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    useEffect(()=>{
     if (message) {
       formatChanger()
     } 
-   },[message])
+   },[message,formatChanger])
 
   return (
     <div>

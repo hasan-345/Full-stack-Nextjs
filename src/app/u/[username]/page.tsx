@@ -17,8 +17,6 @@ import { Textarea } from "@/components/ui/textarea"
 function PublicPage() {
 
    const params = useParams<{username: string}>()
-
-   const [checkStatus,setCheckStatus] = useState(true)
    const [isLoading, setIsLoading] = useState(false)
    const {toast} = useToast()
 
