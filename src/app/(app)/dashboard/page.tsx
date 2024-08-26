@@ -147,7 +147,9 @@ function Page() {
    }
 
   return (
-    <div className='pt-[150px] pb-[50px] max-w-[1600px] mx-auto bg-black p-6 w-full  relative z-[3] '>
+    <div className='pt-[150px] pb-[50px] bg-black p-6 w-full  relative z-[3] '>
+
+      <div className='max-w-[1600px] mx-auto'>
 
 <div className='absolute z-[0] w-[60%] h-[30%] -left-8 -top-10 right-0 pink__gradient overflow-hidden'/>
     <div className='absolute z-[1] w-[50%] h-[50%] -left-8 -top-9 right-0   blue__gradient  overflow-hidden'/>
@@ -201,7 +203,7 @@ function Page() {
               <p>No messages to display</p>
             )}
          </div>
-
+         </div>
     </div>
   )
 }

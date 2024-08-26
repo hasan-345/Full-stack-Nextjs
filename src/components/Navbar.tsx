@@ -17,15 +17,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import Image from 'next/image'
 
-function Navbar({allow=true}) {
+function Navbar() {
 
     const {data: session} = useSession()
     const user:User = session?.user as User
- 
-    if (!allow) {
-      return <></>
-    }
 
 
   return (
@@ -34,7 +31,7 @@ function Navbar({allow=true}) {
     <div className='w-full p-3 h-[100px] px-4 py-0'>
         <div className='flex justify-between items-center w-full h-full'>
              <div>
-                <Link href="/"> <img src="/apna-logo.png" alt='' className='w-[100px] h-[100px] object-cover' /></Link>
+                <Link href="/"> <Image src="/apna-logo.png" alt='logo'  className='w-[100px] h-[100px] object-cover' height={100} width={100}  /></Link>
              </div>
 
              {session &&  <h2 className='text-2xl font-normal text-slate-100 sm:block hidden'> Welcome {user?.username || user?.email} </h2> }
